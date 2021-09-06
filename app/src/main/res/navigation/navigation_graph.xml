@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/organizerFragment">
+
+    <fragment
+        android:id="@+id/organizerFragment"
+        android:name="com.yourapp.seetu.ui.organizer.OrganizerFragment"
+        android:label="@string/chit"
+        tools:layout="@layout/fragment_organizer" >
+        <action
+            android:id="@+id/action_organizerFragment_to_seetuFragment"
+            app:destination="@id/seetuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seetuFragment"
+        android:name="com.yourapp.seetu.ui.seetu.SeetuFragment"
+        android:label="@string/chit"
+        tools:layout="@layout/fragment_seetu" >
+        <action
+            android:id="@+id/action_seetuFragment_to_monthsFragment"
+            app:destination="@id/monthsFragment" />
+        <argument
+            android:name="userPhone"
+            app:argType="string" />
+        <argument
+            android:name="organizerPhone"
+            app:argType="string" />
+        <argument
+            android:name="organizerName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_seetuFragment_to_bankDetailsFragment"
+            app:destination="@id/bankDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monthsFragment"
+        android:name="com.yourapp.seetu.ui.months.MonthsFragment"
+        android:label="@string/months"
+        tools:layout="@layout/fragment_months" >
+        <argument
+            android:name="userPhone"
+            app:argType="string" />
+        <argument
+            android:name="organizerPhone"
+            app:argType="string" />
+        <argument
+            android:name="seetuName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankDetailsFragment"
+        android:name="com.yourapp.seetu.ui.bankDetails.BankDetailsFragment"
+        android:label="@string/bank_details"
+        tools:layout="@layout/fragment_bank_details" >
+        <argument
+            android:name="organizerModel"
+            app:argType="com.yourapp.seetu.model.OrganizerModel" />
+    </fragment>
+</navigation>
